@@ -1,0 +1,128 @@
+.history-page {
+  min-height: 100vh;
+  background: #f5f7fc;
+  padding: 40px 6%;
+  font-family: Arial, sans-serif;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
+}
+
+.tag {
+  color: #3157b7;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.history-header h1 {
+  color: #182440;
+  font-size: 32px;
+  margin: 12px 0;
+}
+
+.history-header p {
+  color: #778198;
+}
+
+.back-button {
+  text-decoration: none;
+  background: #3157b7;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.history-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-header h2 {
+  color: #182440;
+}
+
+.bid-count {
+  background: #edf2ff;
+  color: #3157b7;
+  padding: 9px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+th {
+  background: #f5f7fc;
+  color: #64718c;
+  text-align: left;
+  padding: 16px;
+  font-size: 13px;
+}
+
+td {
+  padding: 18px 16px;
+  border-bottom: 1px solid #edf0f5;
+  color: #59647b;
+  font-size: 14px;
+}
+
+.bidder {
+  color: #182440;
+  font-weight: bold;
+}
+
+.amount {
+  color: #3157b7;
+  font-weight: bold;
+}
+
+.status {
+  background: #e0f7eb;
+  color: #168153;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 35px;
+  color: #8992a5;
+}
+
+@media(max-width: 650px) {
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .history-page {
+    padding: 25px 4%;
+  }
+}

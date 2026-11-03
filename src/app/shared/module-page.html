@@ -1,0 +1,129 @@
+
+<div class="layout">
+
+  <header class="top">
+    <div>
+      <span class="eyebrow">BIDZONE MARKETPLACE</span>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+    <span class="role">{{ section }}</span>
+  </header>
+
+  <section class="stats">
+    <article class="stat">
+      <span>Total Records</span>
+      <strong>{{ records.length }}</strong>
+    </article>
+
+    <article class="stat">
+      <span>Active / Pending</span>
+      <strong>{{ activeCount }}</strong>
+    </article>
+
+    <article class="stat">
+      <span>Completed / Approved</span>
+      <strong>{{ completedCount }}</strong>
+    </article>
+  </section>
+
+  <section class="panel">
+
+    <div class="panel-heading">
+      <div>
+        <h2>{{ section }} Workspace</h2>
+        <p>Manage your marketplace activities.</p>
+      </div>
+
+      <button class="primary" (click)="showForm = !showForm">
+        {{ showForm ? 'Close Form' : actionLabel }}
+      </button>
+    </div>
+
+    <form *ngIf="showForm" (ngSubmit)="addRecord()" class="form">
+
+      <label>
+        Name / Title
+        <input
+          name="name"
+          [(ngModel)]="newName"
+          placeholder="Enter name or title"
+          required>
+      </label>
+
+      <label>
+        Description
+        <input
+          name="detail"
+          [(ngModel)]="newDetail"
+          placeholder="Enter description"
+          required>
+      </label>
+
+      <label>
+        Amount (₹)
+        <input
+          name="amount"
+          type="number"
+          min="0"
+          [(ngModel)]="newAmount"
+          placeholder="Enter amount">
+      </label>
+
+      <button class="primary" type="submit">Save Record</button>
+    </form>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name / Title</th>
+            <th>Details</th>
+            <th>Status</th>
+            <th *ngIf="showAmount">Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of records">
+            <td>#{{ item.id }}</td>
+            <td><strong>{{ item.name }}</strong></td>
+            <td>{{ item.detail }}</td>
+            <td>
+              <span class="status">{{ item.status }}</span>
+            </td>
+
+            <td *ngIf="showAmount">
+              {{ item.amount === undefined ? '—' : (item.amount | currency:'INR':'symbol':'1.0-0') }}
+            </td>
+
+            <td>
+              <button class="small" (click)="changeStatus(item)">
+                {{ actionForRow }}
+              </button>
+
+              <button class="small danger" (click)="deleteRecord(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="records.length === 0">
+            <td [attr.colspan]="showAmount ? 6 : 5" class="empty">
+              No records available. Add your first record.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <p class="notice">
+    Demo frontend: records are stored temporarily in memory.
+    Refreshing the page resets the records.
+  </p>
+
+</div>

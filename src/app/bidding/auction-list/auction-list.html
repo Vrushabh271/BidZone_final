@@ -1,0 +1,86 @@
+
+<div class="page">
+
+  <header class="hero">
+    <span class="tag">BIDZONE MARKETPLACE</span>
+    <h1>Discover Amazing Auctions</h1>
+    <p>Find exclusive products and place your winning bid.</p>
+  </header>
+
+  <section class="auction-section">
+
+    <div class="section-heading">
+      <div>
+        <h2>Live Auctions</h2>
+        <p>Explore products available for bidding.</p>
+      </div>
+
+      <span class="count">{{ auctions.length }} Auctions</span>
+    </div>
+
+    <div class="auction-grid">
+
+      <div class="auction-card" *ngFor="let auction of auctions">
+
+        <div class="image-container">
+          <img [src]="auction.image" [alt]="auction.title">
+          <span class="live-badge">{{ auction.status }}</span>
+        </div>
+
+        <div class="card-content">
+
+          <span class="category">{{ auction.category }}</span>
+
+          <h3>{{ auction.title }}</h3>
+
+          <p class="description">{{ auction.description }}</p>
+
+          <p class="seller">Seller: {{ auction.seller }}</p>
+
+          <div class="price-row">
+            <div>
+              <small>Current Bid</small>
+              <h2>₹{{ auction.currentBid | number }}</h2>
+            </div>
+
+            <div>
+              <small>Starting Price</small>
+              <strong>₹{{ auction.startingPrice | number }}</strong>
+            </div>
+          </div>
+
+          <div class="actions">
+
+            <a
+              [routerLink]="['/bidding/auction', auction.id]"
+              class="details-btn">
+              View Details
+            </a>
+
+            <a
+              *ngIf="auction.status === 'Live' && isAuctionOpen(auction.endTime)"
+              [routerLink]="['/bidding/live', auction.id]"
+              class="bid-btn">
+              Bid Now
+            </a>
+
+            <span
+              class="ended-label"
+              *ngIf="!isAuctionOpen(auction.endTime)">
+              Auction Ended
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="empty" *ngIf="auctions.length === 0">
+      No auctions available.
+    </div>
+
+  </section>
+
+</div>

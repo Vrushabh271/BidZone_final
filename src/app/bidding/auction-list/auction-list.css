@@ -1,0 +1,186 @@
+.page {
+  min-height: 100vh;
+  background: #f5f7fc;
+  padding: 30px 6%;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background: linear-gradient(120deg, #101b3d, #3157b7);
+  padding: 55px 45px;
+  border-radius: 18px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.tag {
+  color: #a8c3ff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.hero p {
+  color: #dce5ff;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  color: #172342;
+  margin-bottom: 6px;
+}
+
+.section-heading p {
+  color: #778198;
+}
+
+.count {
+  background: #e5edff;
+  color: #3157b7;
+  padding: 10px 16px;
+  border-radius: 20px;
+}
+
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.auction-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.auction-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.live-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #16a36a;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.category {
+  color: #4569c7;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-content h3 {
+  color: #182440;
+  margin: 10px 0;
+}
+
+.description {
+  color: #778198;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 40px;
+}
+
+.seller {
+  font-size: 13px;
+  color: #59647b;
+  margin: 15px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #edf0f5;
+  padding-top: 15px;
+}
+
+.price-row small {
+  display: block;
+  color: #8992a5;
+  margin-bottom: 6px;
+}
+
+.price-row h2 {
+  color: #3157b7;
+  font-size: 20px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.actions a {
+  text-align: center;
+  text-decoration: none;
+  padding: 11px 8px;
+  flex: 1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.details-btn {
+  color: #3157b7;
+  background: #edf2ff;
+}
+
+.bid-btn {
+  color: white;
+  background: #3157b7;
+}
+
+.empty {
+  text-align: center;
+  padding: 50px;
+  color: #778198;
+}
+
+@media(max-width: 600px) {
+  .page {
+    padding: 20px 4%;
+  }
+
+  .hero {
+    padding: 35px 20px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+  }
+}

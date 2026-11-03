@@ -1,0 +1,91 @@
+<div class="bidding-page" *ngIf="auction as item">
+
+  <div class="top-bar">
+    <a routerLink="/bidding">← Back to Auctions</a>
+    <span class="live-label">● LIVE AUCTION</span>
+  </div>
+
+  <div class="bidding-container">
+
+    <div class="product-section">
+      <img [src]="item.image" [alt]="item.title">
+
+      <span class="category">{{ item.category }}</span>
+
+      <h1>{{ item.title }}</h1>
+
+      <p>{{ item.description }}</p>
+
+      <div class="seller-info">
+        Seller: <strong>{{ item.seller }}</strong>
+      </div>
+    </div>
+
+    <div class="bid-section">
+
+      <div class="timer-box">
+        <span>AUCTION ENDS IN</span>
+        <h1>{{ timeLeft }}</h1>
+        <p>{{ expired ? 'Auction has ended' : 'Place your bid before time runs out.' }}</p>
+      </div>
+
+      <div class="current-bid">
+        <span>Current Highest Bid</span>
+        <h1>₹{{ item.currentBid | number }}</h1>
+        <small>
+          Minimum next bid:
+          ₹{{ item.currentBid + item.minimumIncrement | number }}
+        </small>
+      </div>
+
+      <div class="bid-form">
+        <h2>Place Your Bid</h2>
+
+        <label>Your Name</label>
+        <input
+          type="text"
+          [(ngModel)]="bidderName"
+          placeholder="Enter your name">
+
+        <label>Your Bid Amount (₹)</label>
+        <input
+          type="number"
+          [(ngModel)]="bidAmount"
+          [min]="item.currentBid + item.minimumIncrement"
+          placeholder="Enter bid amount">
+
+        <button (click)="placeBid()" [disabled]="expired">
+          {{ expired ? 'Auction Ended' : 'Place Bid Now →' }}
+        </button>
+
+        <div
+          class="message"
+          *ngIf="message"
+          [class.success]="messageType === 'success'"
+          [class.error]="messageType === 'error'">
+          {{ message }}
+        </div>
+      </div>
+
+      <div class="bid-rules">
+        <h3>Bidding Rules</h3>
+        <ul>
+          <li>Enter your correct name.</li>
+          <li>Bid must be higher than the current bid.</li>
+          <li>Minimum increment is ₹{{ item.minimumIncrement }}.</li>
+          <li>No bids are accepted after expiry.</li>
+        </ul>
+      </div>
+
+      <a [routerLink]="['/bidding/history', item.id]" class="history-link">
+        View Bid History →
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!auction">
+  Auction not found.
+  <a routerLink="/bidding">Back to auctions</a>
+</div>

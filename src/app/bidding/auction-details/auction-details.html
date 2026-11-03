@@ -1,0 +1,66 @@
+<div class="details-page" *ngIf="auction as item">
+
+  <a routerLink="/bidding" class="back-link">
+    ← Back to Auctions
+  </a>
+
+  <div class="details-container">
+
+    <div class="image-section">
+      <img [src]="item.image" [alt]="item.title">
+    </div>
+
+    <div class="info-section">
+
+      <span class="category">{{ item.category }}</span>
+      <span class="status">{{ isAuctionLive ? 'Live' : 'Ended' }}</span>
+
+      <h1>{{ item.title }}</h1>
+
+      <p class="description">{{ item.description }}</p>
+
+      <div class="detail-row">
+        <span>Seller</span>
+        <strong>{{ item.seller }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Starting Price</span>
+        <strong>₹{{ item.startingPrice | number }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Current Highest Bid</span>
+        <strong class="highlight">
+          ₹{{ item.currentBid | number }}
+        </strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Minimum Increment</span>
+        <strong>₹{{ item.minimumIncrement | number }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Auction End Time</span>
+        <strong>{{ item.endTime | date:'medium' }}</strong>
+      </div>
+
+      <a
+        [routerLink]="['/bidding/live', item.id]"
+        class="bid-button"
+        *ngIf="isAuctionLive">
+        Participate in Auction →
+      </a>
+
+      <p class="closed" *ngIf="!isAuctionLive">
+        This auction is not currently available for bidding.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!auction">
+  Auction not found.
+</div>

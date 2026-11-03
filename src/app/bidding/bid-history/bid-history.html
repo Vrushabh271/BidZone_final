@@ -1,0 +1,75 @@
+<div class="history-page">
+
+  <div class="history-header">
+
+    <div>
+      <span class="tag">BIDZONE MARKETPLACE</span>
+      <h1>Bidding History</h1>
+      <p>Track all bidding activities for this auction.</p>
+    </div>
+
+    <a routerLink="/bidding" class="back-button">
+      ← Back to Auctions
+    </a>
+
+  </div>
+
+  <div class="history-card">
+
+    <div class="card-header">
+      <h2>All Bids</h2>
+      <span class="bid-count">
+        {{ bids.length }} Total Bids
+      </span>
+    </div>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Bid ID</th>
+            <th>Bidder Name</th>
+            <th>Bid Amount</th>
+            <th>Bid Date & Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let bid of bids">
+
+            <td>#{{ bid.id }}</td>
+
+            <td class="bidder">
+              {{ bid.bidderName }}
+            </td>
+
+            <td class="amount">
+              ₹{{ bid.amount | number }}
+            </td>
+
+            <td>
+              {{ bid.bidTime | date:'medium' }}
+            </td>
+
+            <td>
+              <span class="status">Recorded</span>
+            </td>
+
+          </tr>
+
+          <tr *ngIf="bids.length === 0">
+            <td colspan="5" class="empty">
+              No bids have been placed yet.
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

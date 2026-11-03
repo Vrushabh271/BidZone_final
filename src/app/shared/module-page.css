@@ -1,0 +1,209 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px 22px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  color: #6255d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 8px 0;
+}
+
+.top p,
+.panel-heading p {
+  color: #6b7280;
+  margin: 0;
+}
+
+.role {
+  background: #e8e7ff;
+  color: #5145cd;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.stat,
+.panel {
+  background: white;
+  border: 1px solid #e7e9f0;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.stat span {
+  display: block;
+  color: #72798a;
+  font-size: 13px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 8px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.primary {
+  background: #5145cd;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 17px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 18px;
+  background: #f8f8ff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #d9dce7;
+  border-radius: 7px;
+  font: inherit;
+}
+
+.form button {
+  align-self: end;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 650px;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 13px;
+}
+
+th {
+  background: #f8f9fc;
+  color: #656d7e;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #e8edf7;
+  color: #46536c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.small {
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 9px;
+  margin: 2px;
+  cursor: pointer;
+  background: #e9e8ff;
+  color: #5145cd;
+  font-size: 11px;
+}
+
+.danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 28px;
+}
+
+.notice {
+  color: #777;
+  font-size: 12px;
+  margin-top: 18px;
+}
+
+@media (max-width: 700px) {
+  .layout {
+    padding: 20px 12px;
+  }
+
+  .top,
+  .panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .stats,
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
